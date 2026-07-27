@@ -1,6 +1,7 @@
 {
   "required_api_version": "^2.0.0",
   "name": "ChatGPT",
+  "version": "1.0.0",
   "description": "Ask ChatGPT a question from Ulauncher",
   "developer_name": "aad",
   "icon": "images/icon.png",
