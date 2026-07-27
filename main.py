@@ -65,24 +65,26 @@ class KeywordQueryEventListener(EventListener):
 
         api_key = extension.preferences.get('openai_api_key', '').strip()
 
-        if api_key:
-            item = ExtensionResultItem(
-                icon='images/icon.png',
-                name=f"Ask ChatGPT: '{query}'",
-                description="Press Enter to get an answer from the OpenAI API",
-                on_enter=ExtensionCustomAction(query, keep_app_open=True)
-            )
-        else:
-            # Construct the ChatGPT URL with the prompt pre-filled
-            search_url = f"https://chatgpt.com/?q={quote(query)}"
-            item = ExtensionResultItem(
-                icon='images/icon.png',
-                name=f"Ask ChatGPT: '{query}'",
-                description="Open ChatGPT with your prompt in your browser",
-                on_enter=OpenUrlAction(search_url)
-            )
+        # Construct the ChatGPT URL with the prompt pre-filled
+        search_url = f"https://chatgpt.com/?q={quote(query)}"
+        browser_item = ExtensionResultItem(
+            icon='images/icon.png',
+            name=f"Ask ChatGPT: '{query}'",
+            description="Open ChatGPT with your prompt in your browser",
+            on_enter=OpenUrlAction(search_url)
+        )
 
-        return RenderResultListAction([item])
+        if not api_key:
+            return RenderResultListAction([browser_item])
+
+        api_item = ExtensionResultItem(
+            icon='images/icon.png',
+            name=f"Ask ChatGPT (API): '{query}'",
+            description="Press Enter to get an answer from the OpenAI API",
+            on_enter=ExtensionCustomAction(query, keep_app_open=True)
+        )
+
+        return RenderResultListAction([api_item, browser_item])
 
 
 # Listener for the ItemEnterEvent, triggered when an OpenAI API request is submitted

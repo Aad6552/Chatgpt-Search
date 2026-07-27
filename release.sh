@@ -71,9 +71,10 @@ if [[ "$BRANCH" != "master" ]]; then
 fi
 
 if [[ -n "$(git status --porcelain)" ]]; then
-  echo "Error: working tree is not clean. Commit or stash changes first." >&2
+  echo "==> Committing pending changes"
   git status --short
-  exit 1
+  git add -A
+  git commit -m "Pre-release changes for $TAG"
 fi
 
 if git rev-parse "$TAG" >/dev/null 2>&1; then
