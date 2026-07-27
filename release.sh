@@ -65,8 +65,8 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-if [[ "$BRANCH" != "main" ]]; then
-  echo "Error: must be on 'main' branch (currently on '$BRANCH')" >&2
+if [[ "$BRANCH" != "master" ]]; then
+  echo "Error: must be on 'master' branch (currently on '$BRANCH')" >&2
   exit 1
 fi
 
@@ -130,8 +130,8 @@ git commit -m "Release $TAG"
 echo "==> Tagging $TAG"
 git tag -a "$TAG" -m "Release $TAG"
 
-echo "==> Pushing main and $TAG"
-git push origin main
+echo "==> Pushing master and $TAG"
+git push origin master
 git push origin "$TAG"
 
 if command -v gh >/dev/null 2>&1; then
