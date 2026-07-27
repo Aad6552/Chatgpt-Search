@@ -139,7 +139,7 @@ if command -v gh >/dev/null 2>&1; then
   gh release create "$TAG" --title "$TAG" --generate-notes
 else
   echo "==> gh CLI not found; skipping GitHub release creation."
-  echo "    Create one manually at: https://github.com/Aad6552/com.aad.chatgpt/releases/new?tag=$TAG"
+  echo "    Create one manually at: https://github.com/Aad6552/Chatgpt-Search/releases/new?tag=$TAG"
 fi
 
 echo "==> Done: $TAG released"

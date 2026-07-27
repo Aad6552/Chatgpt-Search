@@ -12,7 +12,7 @@ A simple Ulauncher extension to ask ChatGPT a question directly from the browser
 1.  Open Ulauncher's preferences.
 2.  Go to the "Extensions" tab.
 3.  Click "Add extension".
-4.  Paste this URL into the input field: `https://github.com/<your-username>/com.aad.chatgpt`
+4.  Paste this URL into the input field: `https://github.com/Aad6552/Chatgpt-Search`
 5.  Click the "Add" button.
 
 ## Usage
