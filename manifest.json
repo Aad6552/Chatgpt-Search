@@ -12,6 +12,20 @@
       "name": "ChatGPT",
       "description": "Ask ChatGPT a question",
       "default_value": "gpt"
+    },
+    {
+      "id": "openai_api_key",
+      "type": "input",
+      "name": "OpenAI API Key",
+      "description": "Optional. If set, answers are fetched directly from the OpenAI API and shown in Ulauncher. If left empty, Enter opens chatgpt.com with your prompt instead. Get a key at https://platform.openai.com/api-keys",
+      "default_value": ""
+    },
+    {
+      "id": "openai_model",
+      "type": "input",
+      "name": "OpenAI Model",
+      "description": "Model to use when an OpenAI API key is set (e.g. gpt-4o-mini, gpt-4o)",
+      "default_value": "gpt-4o-mini"
     }
   ]
 }
